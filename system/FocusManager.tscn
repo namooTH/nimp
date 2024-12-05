@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwxst7q6kbebk"]
+
+[ext_resource type="Script" uid="uid://q1iipbcphlby" path="res://system/focus_manager.gd" id="1_dwv01"]
+
+[node name="FocusManager" type="Node"]
+script = ExtResource("1_dwv01")

@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckhikm5gqdet0"]
+
+[ext_resource type="PackedScene" uid="uid://brhqndhpkxpcd" path="res://components/general/camera/camera.tscn" id="1_opgpi"]
+[ext_resource type="PackedScene" uid="uid://enieti8vbqxn" path="res://components/general/selection/selectable_container/selectableContainer.tscn" id="2_5x08y"]
+
+[node name="Editor" type="Node2D"]
+
+[node name="Camera" parent="." instance=ExtResource("1_opgpi")]
+
+[node name="SelectableContainer" parent="." instance=ExtResource("2_5x08y")]
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 1
+
+[node name="ColorRect" type="ColorRect" parent="SelectableContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
