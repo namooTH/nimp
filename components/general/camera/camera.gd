@@ -19,9 +19,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_released("mbr"):
 		allowToPan = false
 	
-	
+	lastMousePos = get_global_mouse_position()
 	var scroll := Input.get_axis("scroll_down", "scroll_up")
-	if scroll <= 0 and zoom_to >= Vector2.ONE:
-		zoom_to += Vector2(scroll, scroll) * 0.3
-	if scroll >= 0:
-		zoom_to += Vector2(scroll, scroll) * 0.3
+	zoom_to = clamp(zoom_to + Vector2(scroll, scroll) * 0.05, Vector2(0.001, 0.001), Vector2(10,10))
+	#position += zoom_to

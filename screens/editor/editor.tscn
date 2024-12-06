@@ -1,9 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://ckhikm5gqdet0"]
+[gd_scene load_steps=7 format=3 uid="uid://ckhikm5gqdet0"]
 
+[ext_resource type="Script" uid="uid://cub1mc4fhbq1j" path="res://screens/editor/editor.gd" id="1_lagm4"]
 [ext_resource type="PackedScene" uid="uid://brhqndhpkxpcd" path="res://components/general/camera/camera.tscn" id="1_opgpi"]
 [ext_resource type="PackedScene" uid="uid://enieti8vbqxn" path="res://components/general/selection/selectable_container/selectableContainer.tscn" id="2_5x08y"]
+[ext_resource type="Shader" uid="uid://dhjlv65tda4oi" path="res://components/shaders/grid.gdshader" id="2_nebxx"]
+[ext_resource type="Texture2D" uid="uid://dhhpa7p72be3f" path="res://icon.svg" id="5_g6l4q"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g6l4q"]
+shader = ExtResource("2_nebxx")
+shader_parameter/size = Vector2(1280, 720)
+shader_parameter/line_width = 0.1
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/grid_size = 16.0
 
 [node name="Editor" type="Node2D"]
+script = ExtResource("1_lagm4")
+
+[node name="bg" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_g6l4q")
+offset_right = 2036.0
+offset_bottom = 1219.0
+mouse_filter = 2
 
 [node name="Camera" parent="." instance=ExtResource("1_opgpi")]
 
@@ -20,3 +38,34 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="SelectableContainer2" parent="." instance=ExtResource("2_5x08y")]
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 1
+
+[node name="ColorRect" type="TextureRect" parent="SelectableContainer2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("5_g6l4q")
+expand_mode = 1
+
+[node name="SelectableContainer3" parent="." instance=ExtResource("2_5x08y")]
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 1
+
+[node name="ColorRect" type="ColorRect" parent="SelectableContainer3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
