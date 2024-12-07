@@ -5,3 +5,4 @@
 [node name="TopLevel" type="CanvasLayer"]
 
 [node name="selection" parent="." instance=ExtResource("1_x8c8y")]
+visible = false

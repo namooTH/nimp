@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bjwise3yu62uw"]
 
-[ext_resource type="Shader" uid="uid://bvkcgu08jhp5x" path="res://components/shaders/circle.gdshader" id="1_3qygv"]
+[ext_resource type="Shader" uid="uid://bvkcgu08jhp5x" path="res://shaders/circle.gdshader" id="1_3qygv"]
 [ext_resource type="Script" uid="uid://b3eqpaf057jkp" path="res://components/ui/selection_circle/mousehandler.gd" id="2_lpnrh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lpnrh"]

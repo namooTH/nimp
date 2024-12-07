@@ -1,40 +1,51 @@
 extends Control
 
 var lastMousePos = null
-var allowMove = false
-var allowResize = false
+var isHovered = false
 var isClicked = false
 
-var selectedNode = null
-func select(node: Control):
-	selectedNode = node
+var selectedNode = null:
+	set(value):
+		selectedNode = value
+		if not value: hide()
+		else: show()
+
+func _ready() -> void: SelectionManager.connect("selectionRequiresHandle", select)
+func select(node: Control): selectedNode = node
 var isResizing: bool = false
 func _process(delta: float) -> void:
-	if is_instance_valid(selectedNode):
+	if visible:
 		size = selectedNode.size * Global.currentZoomLevel
 		position = selectedNode.get_global_transform_with_canvas().get_origin()
-	lastMousePos = get_global_mouse_position()
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("mbl"):
+		if visible and not isHovered and not is_instance_valid(FocusManager.getFocusNode()):
+			SelectionManager.deselectCurrentSelection()
+			selectedNode = null
 		isClicked = true
 	if event.is_action_released("mbl"):
 		FocusManager.unfocusCurrent()
 		isClicked = false
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion or event is InputEventKey:
 		var tranfrom
 		if lastMousePos: tranfrom = get_global_mouse_position() - lastMousePos
 		else: return
-		if isClicked:
-			if FocusManager.getFocusNode(): resize_window(selectedNode, FocusManager.getFocusNode(), tranfrom / Global.currentZoomLevel)
-			else: if allowMove: selectedNode.position += tranfrom / Global.currentZoomLevel
-			isResizing = true
+		if isClicked: move(tranfrom)
+		else:
+			if event.is_action_pressed("left"): selectedNode.position.x -= 1
+			if event.is_action_pressed("right"): selectedNode.position.x += 1
+			if event.is_action_pressed("up"): selectedNode.position.x -= 1
+			if event.is_action_pressed("down"): selectedNode.position.x += 1
+	lastMousePos = get_global_mouse_position()
 
-func _on_mouse_entered() -> void:
-	allowMove = true
-func _on_mouse_exited() -> void:
-	allowMove = false
+func _on_mouse_entered() -> void: isHovered = true
+func _on_mouse_exited() -> void: isHovered = false
 
-func resize_window(target: Node, selection_node: Node, tranform: Vector2):
+func move(tranfrom: Vector2):
+	if FocusManager.getFocusNode(): resize(selectedNode, FocusManager.getFocusNode(), tranfrom / Global.currentZoomLevel)
+	else: if isHovered: selectedNode.position += tranfrom / Global.currentZoomLevel
+func resize(target: Node, selection_node: Node, tranform: Vector2):
 	match selection_node.name:
 		"SelectionCircleLeftCenter":
 			target.size.x += -tranform.x

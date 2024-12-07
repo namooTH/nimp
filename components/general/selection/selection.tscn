@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bjwise3yu62uw" path="res://components/ui/selection_circle/selection_circle.tscn" id="1_avemp"]
 [ext_resource type="Script" uid="uid://b5pvubhrvhc7u" path="res://components/general/selection/selection.gd" id="1_oaywr"]
-[ext_resource type="Shader" uid="uid://bjcsr5yxqf65y" path="res://components/shaders/dotted-outline.gdshader" id="4_3vmg6"]
+[ext_resource type="Shader" uid="uid://bjcsr5yxqf65y" path="res://shaders/dotted-outline.gdshader" id="4_3vmg6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ku88n"]
 shader = ExtResource("4_3vmg6")
