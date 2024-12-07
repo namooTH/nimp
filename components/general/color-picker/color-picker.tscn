@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://b46el6unm8rrd"]
+
+[ext_resource type="Script" uid="uid://cpctkkf5vv2nf" path="res://components/general/color-picker/color_picker.gd" id="1_ay81w"]
+[ext_resource type="Shader" uid="uid://doemii0fg855l" path="res://shaders/huecircle.gdshader" id="1_jlkvp"]
+[ext_resource type="Shader" uid="uid://bvkcgu08jhp5x" path="res://shaders/circle.gdshader" id="2_w1cfo"]
+[ext_resource type="Shader" uid="uid://4csnyf4mjus4" path="res://shaders/rec-outline.gdshader" id="4_bluql"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w1cfo"]
+shader = ExtResource("1_jlkvp")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ay81w"]
+shader = ExtResource("2_w1cfo")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mah67"]
+shader = ExtResource("4_bluql")
+
+[node name="Color-picker" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ay81w")
+
+[node name="ratio" type="AspectRatioContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="hueCircle" type="ColorRect" parent="ratio"]
+material = SubResource("ShaderMaterial_w1cfo")
+layout_mode = 2
+
+[node name="inner" type="ColorRect" parent="ratio/hueCircle"]
+material = SubResource("ShaderMaterial_ay81w")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.103
+anchor_top = 0.103
+anchor_right = 0.897
+anchor_bottom = 0.897
+offset_left = -0.244003
+offset_top = -0.244003
+offset_right = 0.244019
+offset_bottom = 0.244019
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="pointer" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_mah67")
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.052
+anchor_bottom = 0.039
+offset_right = 0.0960007
+offset_bottom = -0.272001
+pivot_offset = Vector2(30, 12.5)
+color = Color(1, 1, 1, 0)
