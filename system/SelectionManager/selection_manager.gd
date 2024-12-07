@@ -9,3 +9,6 @@ func requiresSelection(node: Control):
 	selectionRequiresHandle.emit(_currentSelection)
 func deselectCurrentSelection(): _currentSelection = null
 func getSelectedNode() -> Node: return _currentSelection
+func queueFreeCurrentSelection():
+	_currentSelection.queue_free()
+	_currentSelection = null

@@ -4,25 +4,18 @@ var lastMousePos = null
 var isHovered = false
 var isClicked = false
 
-var selectedNode = null:
-	set(value):
-		selectedNode = value
-		if not value: hide()
-		else: show()
-
-func _ready() -> void: SelectionManager.connect("selectionRequiresHandle", select)
-func select(node: Control): selectedNode = node
 var isResizing: bool = false
 func _process(delta: float) -> void:
-	if visible:
-		size = selectedNode.size * Global.currentZoomLevel
-		position = selectedNode.get_global_transform_with_canvas().get_origin()
+	var selected = SelectionManager.getSelectedNode()
+	if is_instance_valid(selected):
+		show()
+		size = selected.size * Global.currentZoomLevel
+		position = selected.get_global_transform_with_canvas().get_origin()
+	else: hide()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("mbl"):
-		if visible and not isHovered and not is_instance_valid(FocusManager.getFocusNode()):
-			SelectionManager.deselectCurrentSelection()
-			selectedNode = null
+		if visible and not isHovered and not is_instance_valid(FocusManager.getFocusNode()): SelectionManager.deselectCurrentSelection()
 		isClicked = true
 	if event.is_action_released("mbl"):
 		FocusManager.unfocusCurrent()
@@ -33,18 +26,18 @@ func _input(event: InputEvent) -> void:
 		else: return
 		if isClicked: move(tranfrom)
 		else:
-			if event.is_action_pressed("left"): selectedNode.position.x -= 1
-			if event.is_action_pressed("right"): selectedNode.position.x += 1
-			if event.is_action_pressed("up"): selectedNode.position.x -= 1
-			if event.is_action_pressed("down"): selectedNode.position.x += 1
+			if event.is_action_pressed("left"): SelectionManager.getSelectedNode().position.x -= 1
+			if event.is_action_pressed("right"): SelectionManager.getSelectedNode().position.x += 1
+			if event.is_action_pressed("up"): SelectionManager.getSelectedNode().position.y -= 1
+			if event.is_action_pressed("down"): SelectionManager.getSelectedNode().position.y += 1
 	lastMousePos = get_global_mouse_position()
 
 func _on_mouse_entered() -> void: isHovered = true
 func _on_mouse_exited() -> void: isHovered = false
 
 func move(tranfrom: Vector2):
-	if FocusManager.getFocusNode(): resize(selectedNode, FocusManager.getFocusNode(), tranfrom / Global.currentZoomLevel)
-	else: if isHovered: selectedNode.position += tranfrom / Global.currentZoomLevel
+	if FocusManager.getFocusNode(): resize(SelectionManager.getSelectedNode(), FocusManager.getFocusNode(), tranfrom / Global.currentZoomLevel)
+	else: if isHovered: SelectionManager.getSelectedNode().position += tranfrom / Global.currentZoomLevel
 func resize(target: Node, selection_node: Node, tranform: Vector2):
 	match selection_node.name:
 		"SelectionCircleLeftCenter":
