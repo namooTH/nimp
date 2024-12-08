@@ -22,6 +22,7 @@ func getCanvasImage() -> Image:
 	$"placeholder-msg".show()
 	
 	render.size = canvas.size
+	camera.position = Vector2.ZERO
 	
 	if is_instance_valid(SelectionManager.getSelectedNode()):
 		var selectedEntireSize = SelectionManager.getSelectedNode().position + SelectionManager.getSelectedNode().size

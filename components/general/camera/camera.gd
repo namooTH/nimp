@@ -21,5 +21,5 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	lastMousePos = get_global_mouse_position()
 	var scroll := Input.get_axis("scroll_down", "scroll_up")
-	zoom_to = clamp(zoom_to + Vector2(scroll, scroll) * 0.05, Vector2(0.001, 0.001), Vector2(10,10))
-	#position += zoom_to
+	zoom_to = clamp(zoom_to + Vector2(scroll, scroll) * 0.05, Vector2(0.05, 0.05), Vector2(10,10))
+	if scroll: position += -sign(scroll) * ( ( (get_viewport_rect().size / 2.0) - get_viewport().get_mouse_position() ) * 0.05 ) / zoom

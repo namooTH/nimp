@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://wj4b1fhrjt8m"]
 
-[ext_resource type="Script" path="res://components/ui/scroller/scroller.gd" id="1_mye0k"]
+[ext_resource type="Script" uid="uid://dnjy7kk8ji6a1" path="res://components/ui/scroller/scroller.gd" id="1_mye0k"]
 
 [node name="Scroller" type="Control"]
 clip_contents = true

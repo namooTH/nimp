@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bldss5ay3pffu"]
+[gd_scene load_steps=5 format=3 uid="uid://bldss5ay3pffu"]
 
 [ext_resource type="PackedScene" uid="uid://cnethd7kt4l5q" path="res://components/general/colorPicker/colorPicker.tscn" id="1_u4aen"]
 [ext_resource type="PackedScene" uid="uid://5jl5h4do11it" path="res://components/general/selection/selection.tscn" id="1_x8c8y"]
+[ext_resource type="PackedScene" uid="uid://0icrxox7ll0t" path="res://components/general/screenSelector/screenSelector.tscn" id="3_2yc3n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2yc3n"]
+bg_color = Color(0.187176, 0.187176, 0.187176, 1)
 
 [node name="TopLevel" type="CanvasLayer"]
 
@@ -17,6 +21,21 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="ColorPicker" parent="editor" instance=ExtResource("1_u4aen")]
+[node name="VSplitContainer" type="VSplitContainer" parent="editor"]
 layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.821
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.207947
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/split_bar_background = SubResource("StyleBoxFlat_2yc3n")
+split_offset = 450
+
+[node name="ColorPicker" parent="editor/VSplitContainer" instance=ExtResource("1_u4aen")]
+layout_mode = 2
 mouse_filter = 0
+
+[node name="ScreenSelector" parent="editor/VSplitContainer" instance=ExtResource("3_2yc3n")]
+layout_mode = 2

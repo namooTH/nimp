@@ -1,0 +1,67 @@
+[gd_scene load_steps=3 format=3 uid="uid://5w3hmvu6b3nn"]
+
+[ext_resource type="PackedScene" uid="uid://w2vq1ipnu4tu" path="res://components/ui/AutoSizeLabel/AutoSizeLabel.tscn" id="1_0ntjr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tu3uv"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="ThumbnailBox" type="Panel"]
+anchors_preset = -1
+offset_right = 358.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_tu3uv")
+
+[node name="margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="content" type="Control" parent="margin"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="margin/content"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.348
+anchor_bottom = 1.0
+offset_right = -0.136017
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="margin/content/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(117, 180)
+render_target_update_mode = 4
+
+[node name="title" parent="margin/content" instance=ExtResource("1_0ntjr")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.376
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.0880051
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "title"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+max_font_size = 24

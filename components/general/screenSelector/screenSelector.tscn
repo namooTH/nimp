@@ -1,0 +1,105 @@
+[gd_scene load_steps=3 format=3 uid="uid://0icrxox7ll0t"]
+
+[ext_resource type="PackedScene" uid="uid://wj4b1fhrjt8m" path="res://components/ui/scroller/scroller.tscn" id="1_5tsog"]
+[ext_resource type="PackedScene" uid="uid://5w3hmvu6b3nn" path="res://components/ui/thumbnail_box/thumbnail_box.tscn" id="2_lepmi"]
+
+[node name="ScreenSelector" type="Control"]
+layout_mode = 3
+anchor_top = 0.432
+anchor_right = 0.321
+anchor_bottom = 1.0
+offset_top = 0.0639954
+offset_right = 0.207977
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Scroller" parent="." instance=ExtResource("1_5tsog")]
+layout_mode = 1
+
+[node name="ThumbnailBox" parent="Scroller" instance=ExtResource("2_lepmi")]
+layout_mode = 1
+anchor_right = 1.0
+offset_right = 0.0
+offset_bottom = 57.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="ThumbnailBox2" parent="Scroller" instance=ExtResource("2_lepmi")]
+layout_mode = 1
+anchor_right = 1.0
+offset_right = 0.0
+offset_bottom = 57.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="ThumbnailBox3" parent="Scroller" instance=ExtResource("2_lepmi")]
+layout_mode = 1
+anchor_right = 1.0
+offset_right = 0.0
+offset_bottom = 57.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="ThumbnailBox4" parent="Scroller" instance=ExtResource("2_lepmi")]
+layout_mode = 1
+anchor_right = 1.0
+offset_right = 0.0
+offset_bottom = 57.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="ThumbnailBox5" parent="Scroller" instance=ExtResource("2_lepmi")]
+layout_mode = 1
+anchor_right = 1.0
+offset_right = 0.0
+offset_bottom = 57.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="ThumbnailBox6" parent="Scroller" instance=ExtResource("2_lepmi")]
+layout_mode = 1
+anchor_right = 1.0
+offset_right = 0.0
+offset_bottom = 57.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="ThumbnailBox7" parent="Scroller" instance=ExtResource("2_lepmi")]
+layout_mode = 1
+anchor_right = 1.0
+offset_right = 0.0
+offset_bottom = 57.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="ThumbnailBox8" parent="Scroller" instance=ExtResource("2_lepmi")]
+layout_mode = 1
+anchor_right = 1.0
+offset_right = 0.0
+offset_bottom = 57.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="ThumbnailBox9" parent="Scroller" instance=ExtResource("2_lepmi")]
+layout_mode = 1
+anchor_right = 1.0
+offset_right = 0.0
+offset_bottom = 57.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="ThumbnailBox10" parent="Scroller" instance=ExtResource("2_lepmi")]
+layout_mode = 1
+anchor_right = 1.0
+offset_right = 0.0
+offset_bottom = 57.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="ThumbnailBox11" parent="Scroller" instance=ExtResource("2_lepmi")]
+layout_mode = 1
+anchor_right = 1.0
+offset_right = 0.0
+offset_bottom = 57.0
+grow_horizontal = 1
+grow_vertical = 1
