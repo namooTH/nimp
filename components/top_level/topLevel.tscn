@@ -1,8 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://bldss5ay3pffu"]
+[gd_scene load_steps=3 format=3 uid="uid://bldss5ay3pffu"]
 
+[ext_resource type="PackedScene" uid="uid://cnethd7kt4l5q" path="res://components/general/colorPicker/colorPicker.tscn" id="1_u4aen"]
 [ext_resource type="PackedScene" uid="uid://5jl5h4do11it" path="res://components/general/selection/selection.tscn" id="1_x8c8y"]
 
 [node name="TopLevel" type="CanvasLayer"]
 
 [node name="selection" parent="." instance=ExtResource("1_x8c8y")]
 visible = false
+
+[node name="editor" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorPicker" parent="editor" instance=ExtResource("1_u4aen")]
+layout_mode = 1

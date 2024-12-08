@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://wj4b1fhrjt8m"]
+
+[ext_resource type="Script" path="res://components/ui/scroller/scroller.gd" id="1_mye0k"]
+
+[node name="Scroller" type="Control"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mye0k")
+
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
+[connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

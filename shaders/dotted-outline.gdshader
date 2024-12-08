@@ -1,3 +1,5 @@
+// thanks to https://godotshaders.com/shader/animated-selection-rectangle-marching-ants/
+
 shader_type canvas_item;
 
 uniform vec4 ant_color_1: source_color = vec4(1.0, 1.0, 1.0, 1.0);

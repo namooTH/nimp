@@ -1,6 +1,6 @@
 shader_type canvas_item;
+uniform float hue;
 
-// code from https://www.statox.fr/posts/2021/04/color_picker_shaders/?utm_campaign=color_picker_demo
 // https://gist.github.com/yiwenl/745bfea7f04c456e0101
 vec3 hsb2rgb(vec3 c)
 {
@@ -10,5 +10,8 @@ vec3 hsb2rgb(vec3 c)
 }
 
 void fragment() {
-	COLOR.rgb = hsb2rgb(vec3(UV.x, 1, 1));
+	// flip y because thats just how godot works
+	// also because most color picker looks this way
+    vec3 color = hsb2rgb(vec3(hue, UV.x, 1.0 - UV.y));
+    COLOR = vec4(color, 1.0);
 }

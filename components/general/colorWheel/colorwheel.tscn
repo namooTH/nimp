@@ -1,0 +1,138 @@
+[gd_scene load_steps=14 format=3 uid="uid://b46el6unm8rrd"]
+
+[ext_resource type="Script" uid="uid://cpctkkf5vv2nf" path="res://components/general/colorWheel/color_picker.gd" id="1_wtthi"]
+[ext_resource type="Shader" uid="uid://doemii0fg855l" path="res://shaders/huecircle.gdshader" id="2_hwonw"]
+[ext_resource type="Script" uid="uid://itngimswosc6" path="res://components/general/colorWheel/hue_circle.gd" id="3_3f6ro"]
+[ext_resource type="Shader" uid="uid://4csnyf4mjus4" path="res://shaders/rec-outline.gdshader" id="4_gisac"]
+[ext_resource type="Shader" uid="uid://bvkcgu08jhp5x" path="res://shaders/circle.gdshader" id="5_yy7uc"]
+[ext_resource type="Shader" uid="uid://vua3vmepr2j5" path="res://shaders/saturation.gdshader" id="6_a5xwj"]
+[ext_resource type="Script" uid="uid://cu86lnc0ydhs3" path="res://components/general/colorWheel/sat.gd" id="7_fy5ck"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w1cfo"]
+shader = ExtResource("2_hwonw")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mah67"]
+shader = ExtResource("4_gisac")
+shader_parameter/outline_width = 5.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ay81w"]
+shader = ExtResource("5_yy7uc")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mah67"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bqloh"]
+shader = ExtResource("6_a5xwj")
+shader_parameter/hue = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nfs88"]
+shader = ExtResource("5_yy7uc")
+
+[node name="ColorWheel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wtthi")
+
+[node name="ratio" type="AspectRatioContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.869
+offset_bottom = -0.112
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="hueCircle" type="ColorRect" parent="ratio"]
+material = SubResource("ShaderMaterial_w1cfo")
+layout_mode = 2
+mouse_filter = 1
+script = ExtResource("3_3f6ro")
+
+[node name="pointer" type="ColorRect" parent="ratio/hueCircle"]
+material = SubResource("ShaderMaterial_mah67")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.389
+anchor_right = -0.296
+anchor_bottom = 0.039
+offset_left = 0.0720215
+offset_right = -0.192001
+offset_bottom = -0.272001
+pivot_offset = Vector2(30, 12.5)
+mouse_filter = 1
+color = Color(1, 1, 1, 0.901961)
+
+[node name="inner" type="ColorRect" parent="ratio/hueCircle"]
+material = SubResource("ShaderMaterial_ay81w")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.103
+anchor_top = 0.103
+anchor_right = 0.897
+anchor_bottom = 0.897
+offset_left = -0.244003
+offset_top = -0.244003
+offset_right = 0.244019
+offset_bottom = 0.244019
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(1, 1, 1, 0.760784)
+
+[node name="bg" type="Panel" parent="ratio/hueCircle/inner"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.176
+anchor_top = 0.176
+anchor_right = 0.824
+anchor_bottom = 0.824
+offset_left = -0.140007
+offset_top = -0.140007
+offset_right = 0.139954
+offset_bottom = 0.139954
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mah67")
+
+[node name="sat" type="ColorRect" parent="ratio/hueCircle/inner"]
+material = SubResource("ShaderMaterial_bqloh")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.19
+anchor_top = 0.19
+anchor_right = 0.81
+anchor_bottom = 0.81
+offset_left = 0.149994
+offset_top = 0.149994
+offset_right = -0.150024
+offset_bottom = -0.150024
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_fy5ck")
+
+[node name="satpointer" type="ColorRect" parent="ratio/hueCircle/inner/sat"]
+material = SubResource("ShaderMaterial_nfs88")
+layout_mode = 2
+anchor_left = -0.514
+anchor_top = -0.514
+anchor_right = -0.464
+anchor_bottom = -0.464
+offset_left = -0.0339966
+offset_top = -0.0339966
+offset_right = 0.0160065
+offset_bottom = 0.0160065
+mouse_filter = 1
+color = Color(1, 1, 1, 0.67451)
+
+[connection signal="mouse_entered" from="ratio/hueCircle" to="ratio/hueCircle" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ratio/hueCircle" to="ratio/hueCircle" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="ratio/hueCircle/inner/sat" to="ratio/hueCircle/inner/sat" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ratio/hueCircle/inner/sat" to="ratio/hueCircle/inner/sat" method="_on_mouse_exited"]

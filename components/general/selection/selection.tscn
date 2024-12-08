@@ -13,7 +13,6 @@ shader_parameter/ant_length = 10.0
 shader_parameter/ant_speed = 30.0
 
 [node name="selection" type="Control"]
-z_index = 255
 layout_mode = 3
 anchor_right = 0.19
 anchor_bottom = 0.227

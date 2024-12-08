@@ -1,13 +1,12 @@
 shader_type canvas_item;
 
-vec3 hue2rgb(float hue) {
-	hue = fract(hue); //only use fractional part of hue, making it loop
-    float r = abs(hue * 6.0 - 3.0) - 1.0; //red
-    float g = 2.0 - abs(hue * 6.0 - 2.0); //green
-    float b = 2.0 - abs(hue * 6.0 - 4.0); //blue
-    vec3 rgb = vec3(r,g,b); //combine components
-    rgb = clamp(rgb, 0.0, 1.0); //clamp between 0 and 1
-    return rgb;
+// code from https://www.statox.fr/posts/2021/04/color_picker_shaders/?utm_campaign=color_picker_demo
+// https://gist.github.com/yiwenl/745bfea7f04c456e0101
+vec3 hsb2rgb(vec3 c)
+{
+    vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
+    vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
+    return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
 }
 
 float circle(vec2 position, float radius)
@@ -31,7 +30,7 @@ void fragment() {
 	vec2 polar_uv = polar_coordinates(UV.xy, vec2(0.5), 0.0, 1.0);
 	COLOR.a = 0.0;
 	if (circle(UV, 0.45) == 0.0) {
-		COLOR.rgb = hue2rgb(polar_uv.y);
+		COLOR.rgb = hsb2rgb(vec3(polar_uv.y, 1, 1));
 		COLOR.a = 1.0;
 	};
 }

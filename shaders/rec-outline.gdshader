@@ -1,16 +1,18 @@
+// thanks to https://godotshaders.com/shader/animated-selection-rectangle-marching-ants/
+
 shader_type canvas_item;
+uniform float outline_width = 6.0;
 
-vec4 square_stroke(vec2 uv, float width, float stroke_width)
+float rec_stroke(vec2 uv, float width)
 {
-	uv = uv * 2.0 - 1.0;
-
-	vec2 abs_uv = abs(uv.xy);
-	float dist = max(abs_uv.x, abs_uv.y);
-	vec3 stroke = 1.0 - vec3( step(width, dist) - step(width + stroke_width, dist) );
-	return vec4(vec3(stroke), 1.0);
+    vec2 fw = fwidth(uv);
+    float line_width = min(width, min(0.5 / fw.x, 0.5 / fw.y));
+    vec2 aw = fw * line_width;
+    vec2 cond = (sign(abs(uv - 0.5) - 0.5 + aw) + 1.0) * 0.5 * ceil(((sign(uv.yx - aw.yx) + 1.0) * 0.5 * (sign(uv - 0.5) * vec2(0.5, -0.5) + 0.5) * 0.5 + (sign(1.0 - aw.yx - uv.yx) + 1.0) * 0.5 * (sign(uv - 0.5) * vec2(-0.5, 0.5)+ 0.5) * 0.5));
+    float dir = dot(vec2(cond.y, -cond.x), sign(uv.yx - 0.5) * uv / aw);
+	return (cond.x + cond.y);
 }
 
 void fragment() {
-	COLOR.a = 0.0;
-	COLOR = square_stroke(UV, 0.8, 0.2);
+    COLOR = rec_stroke(UV, outline_width) * COLOR;
 }

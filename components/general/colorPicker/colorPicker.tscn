@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnethd7kt4l5q"]
+
+[ext_resource type="PackedScene" uid="uid://b46el6unm8rrd" path="res://components/general/colorWheel/colorwheel.tscn" id="1_7i86x"]
+[ext_resource type="PackedScene" uid="uid://wj4b1fhrjt8m" path="res://components/ui/scroller/scroller.tscn" id="2_vasgp"]
+
+[node name="ColorPicker" type="Control"]
+layout_mode = 3
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -294.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="split" type="VSplitContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offset = 500
+
+[node name="ColorWheel" parent="split" instance=ExtResource("1_7i86x")]
+layout_mode = 2
+
+[node name="color" type="ColorRect" parent="split"]
+layout_mode = 2
+mouse_filter = 1
+color = Color(1, 1, 1, 0.658824)
+
+[node name="Scroller" parent="split/color" instance=ExtResource("2_vasgp")]
+layout_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="split/color/Scroller"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect2" type="ColorRect" parent="split/color/Scroller"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect3" type="ColorRect" parent="split/color/Scroller"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect4" type="ColorRect" parent="split/color/Scroller"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
