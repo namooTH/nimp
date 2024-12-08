@@ -74,8 +74,7 @@ func _input(event):
 		pressedPos = event.position
 	if event.is_action_released("mbl"):
 		pressedPos = null
-		
-	smoothVelocity.y += (-event.get_action_strength("scroll_down") + event.get_action_strength("scroll_up")) * 2.0
+	if isHovered: smoothVelocity.y += (-event.get_action_strength("scroll_down") + event.get_action_strength("scroll_up")) * 2.0
 
 func checkNode(node):
 	if node in cachedDownNodes or node in cachedUpperNodes or node in displayedNodes:

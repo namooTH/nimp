@@ -13,7 +13,7 @@ func _process(delta: float) -> void:
 		position = selected.get_global_transform_with_canvas().get_origin()
 	else: hide()
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("mbl"):
 		if visible and not isHovered and not is_instance_valid(FocusManager.getFocusNode()): SelectionManager.deselectCurrentSelection()
 		isClicked = true

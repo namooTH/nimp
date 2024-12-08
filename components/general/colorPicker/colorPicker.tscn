@@ -28,7 +28,6 @@ layout_mode = 2
 
 [node name="color" type="ColorRect" parent="split"]
 layout_mode = 2
-mouse_filter = 1
 color = Color(1, 1, 1, 0.658824)
 
 [node name="Scroller" parent="split/color" instance=ExtResource("2_vasgp")]

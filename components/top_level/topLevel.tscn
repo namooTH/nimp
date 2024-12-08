@@ -19,3 +19,4 @@ mouse_filter = 2
 
 [node name="ColorPicker" parent="editor" instance=ExtResource("1_u4aen")]
 layout_mode = 1
+mouse_filter = 0
