@@ -1,15 +1,15 @@
 extends ColorRect
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("mbl") and isHovered:
+func _process(delta: float) -> void:
+	if Input.is_action_pressed("mbl") and isHovered:
+		print("hello world")
 		var center = size / 2
 		var point = center.angle_to_point(get_local_mouse_position())
 		var pointDeg = rad_to_deg(point)
 		Global.currentColor.h = 1.0
 		if pointDeg > 0: Global.currentColor.h = pointDeg / 360.0
 		else: Global.currentColor.h = 1.0 + pointDeg / 360.0
-
-func _process(delta: float) -> void:
+	
 	# adjusing the pointer
 	var pointer = $pointer
 	var radius = size.y / 2.35

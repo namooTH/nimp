@@ -18,6 +18,7 @@ layout_mode = 1
 
 [node name="ThumbnailBox" parent="Scroller" instance=ExtResource("2_lepmi")]
 layout_mode = 1
+anchors_preset = 10
 anchor_right = 1.0
 offset_right = 0.0
 offset_bottom = 57.0
@@ -26,6 +27,7 @@ grow_vertical = 1
 
 [node name="ThumbnailBox2" parent="Scroller" instance=ExtResource("2_lepmi")]
 layout_mode = 1
+anchors_preset = 10
 anchor_right = 1.0
 offset_right = 0.0
 offset_bottom = 57.0
@@ -34,6 +36,7 @@ grow_vertical = 1
 
 [node name="ThumbnailBox3" parent="Scroller" instance=ExtResource("2_lepmi")]
 layout_mode = 1
+anchors_preset = 10
 anchor_right = 1.0
 offset_right = 0.0
 offset_bottom = 57.0
@@ -42,6 +45,7 @@ grow_vertical = 1
 
 [node name="ThumbnailBox4" parent="Scroller" instance=ExtResource("2_lepmi")]
 layout_mode = 1
+anchors_preset = 10
 anchor_right = 1.0
 offset_right = 0.0
 offset_bottom = 57.0
@@ -50,6 +54,7 @@ grow_vertical = 1
 
 [node name="ThumbnailBox5" parent="Scroller" instance=ExtResource("2_lepmi")]
 layout_mode = 1
+anchors_preset = 10
 anchor_right = 1.0
 offset_right = 0.0
 offset_bottom = 57.0
@@ -58,6 +63,7 @@ grow_vertical = 1
 
 [node name="ThumbnailBox6" parent="Scroller" instance=ExtResource("2_lepmi")]
 layout_mode = 1
+anchors_preset = 10
 anchor_right = 1.0
 offset_right = 0.0
 offset_bottom = 57.0
@@ -66,6 +72,7 @@ grow_vertical = 1
 
 [node name="ThumbnailBox7" parent="Scroller" instance=ExtResource("2_lepmi")]
 layout_mode = 1
+anchors_preset = 10
 anchor_right = 1.0
 offset_right = 0.0
 offset_bottom = 57.0
@@ -74,6 +81,7 @@ grow_vertical = 1
 
 [node name="ThumbnailBox8" parent="Scroller" instance=ExtResource("2_lepmi")]
 layout_mode = 1
+anchors_preset = 10
 anchor_right = 1.0
 offset_right = 0.0
 offset_bottom = 57.0
@@ -82,6 +90,7 @@ grow_vertical = 1
 
 [node name="ThumbnailBox9" parent="Scroller" instance=ExtResource("2_lepmi")]
 layout_mode = 1
+anchors_preset = 10
 anchor_right = 1.0
 offset_right = 0.0
 offset_bottom = 57.0
@@ -90,6 +99,7 @@ grow_vertical = 1
 
 [node name="ThumbnailBox10" parent="Scroller" instance=ExtResource("2_lepmi")]
 layout_mode = 1
+anchors_preset = 10
 anchor_right = 1.0
 offset_right = 0.0
 offset_bottom = 57.0
@@ -98,6 +108,7 @@ grow_vertical = 1
 
 [node name="ThumbnailBox11" parent="Scroller" instance=ExtResource("2_lepmi")]
 layout_mode = 1
+anchors_preset = 10
 anchor_right = 1.0
 offset_right = 0.0
 offset_bottom = 57.0
