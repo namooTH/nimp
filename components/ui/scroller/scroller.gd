@@ -1,4 +1,5 @@
 extends Control
+class_name Scroller
 
 @export var padding: Vector2 = Vector2(10,10)
 
@@ -33,10 +34,32 @@ func fillInNodesY():
 		displayedNodes[0].position.y = -displayedNodes[0].size.y - padding.y
 		cachedUpperNodes.pop_back()
 
-#func insertNode(index: int = -1):
-#	pass
-#func sortNodes():
-#	pass
+func insertNode(node: Control, index: int = -1):
+	var accessIndex: int
+	if index < 0: accessIndex = (cachedUpperNodes.size() + displayedNodes.size() + cachedDownNodes.size()) + index + 1
+	else: accessIndex = index
+	
+	var totalSize = 0
+	for listCount in range(3):
+		var workingArray: Array
+		match listCount:
+			0: workingArray = cachedUpperNodes
+			1: workingArray = displayedNodes
+			2: workingArray = cachedDownNodes
+		totalSize += workingArray.size()
+		if accessIndex <= totalSize:
+			if totalSize == 0: checkNode(node) 
+			elif accessIndex <= cachedUpperNodes.size(): workingArray.insert(accessIndex, node)
+			else: workingArray.insert(workingArray.size() - (totalSize - accessIndex), node)
+			break
+			
+	add_child(node)
+	#update()
+	
+func findIndex(node: Control) -> int:
+	if node in cachedUpperNodes: return cachedUpperNodes.find(node)
+	elif node in displayedNodes: return displayedNodes.find(node)
+	else: return cachedDownNodes.find(node)
 
 var scrollVelocity: Vector2 = Vector2.ZERO
 func _process(delta):
@@ -52,7 +75,6 @@ func _process(delta):
 
 	smoothVelocity = lerp(smoothVelocity, Vector2.ZERO, delta * 5)
 	if displayedNodes: displayedNodes[0].position.y += scrollVelocity.y + smoothVelocity.y
-	#if absf(smoothVelocity.y) > 0.01 or scrollVelocity.y > 0.0:
 	update()
 	scrollVelocity = Vector2.ZERO
 
@@ -60,7 +82,7 @@ func update():
 	var lastNode = null
 	for node in displayedNodes:
 		if lastNode:
-			node.position.y = lastNode.position.y + lastNode.size.y + 10
+			node.position.y = lastNode.position.y + lastNode.size.y + padding.y
 			node.position.x = lastNode.position.x #+ lastNode.size.x
 		lastNode = node
 	
@@ -79,7 +101,6 @@ func _input(event):
 func checkNode(node):
 	if node in cachedDownNodes or node in cachedUpperNodes or node in displayedNodes:
 		return
-	
 	if !"unrelated_" in node.name and !node is Control:
 		var errormsg = "%s is NOT in the Control class." % node
 		#GlobalMessage.appendLinuxStyleDebugText(["[color=red]BAD[/color]", errormsg])
@@ -87,13 +108,11 @@ func checkNode(node):
 		return
 	if not "unrelated_" in node.name:
 		displayedNodes.append(node)
-		update()
 
 func _on_child_entered_tree(node):
 	checkNode(node)
 func _on_child_exiting_tree(node):
-	pass # Replace with function body.
-
+	pass
 
 var isHovered = false
 func _on_mouse_entered() -> void:

@@ -5,16 +5,27 @@
 
 [node name="CompositionScreenSelector" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_right = 0.991
+offset_right = 0.36792
+offset_bottom = 286.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xwu8a")
 
 [node name="ThumbnailBox" parent="." instance=ExtResource("2_b87iu")]
-layout_mode = 1
-offset_right = 1152.0
-offset_bottom = 648.0
+layout_mode = 2
+anchor_right = 1.009
+offset_right = -0.278076
+offset_bottom = 172.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="ThumbnailBox2" parent="." instance=ExtResource("2_b87iu")]
+layout_mode = 2
+anchor_right = 1.009
+offset_left = 9.0
+offset_top = 312.0
+offset_right = 8.72192
+offset_bottom = 484.0
 grow_horizontal = 1
 grow_vertical = 1
