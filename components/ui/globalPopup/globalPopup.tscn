@@ -1,0 +1,134 @@
+[gd_scene load_steps=8 format=3 uid="uid://bfajttt3q65jj"]
+
+[sub_resource type="Gradient" id="Gradient_3et23"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hp6ce"]
+gradient = SubResource("Gradient_3et23")
+
+[sub_resource type="Gradient" id="Gradient_hp6ce"]
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_aqugt"]
+gradient = SubResource("Gradient_hp6ce")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3et23"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="Gradient" id="Gradient_aqugt"]
+offsets = PackedFloat32Array(0, 0.517544, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_277oe"]
+gradient = SubResource("Gradient_aqugt")
+width = 100
+
+[node name="GlobalPopup" type="CanvasLayer"]
+
+[node name="main2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bars" type="Control" parent="main2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bar" type="TextureRect" parent="main2/bars"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.219
+anchor_bottom = 1.0
+offset_right = 247.24
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_hp6ce")
+
+[node name="bar2" type="TextureRect" parent="main2/bars"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.567
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.184021
+offset_right = 0.528076
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_aqugt")
+
+[node name="main" type="Panel" parent="main2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.362
+anchor_top = 0.211
+anchor_right = 0.638
+anchor_bottom = 0.789
+offset_left = 0.475983
+offset_top = 0.271988
+offset_right = -0.475952
+offset_bottom = -0.272034
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3et23")
+
+[node name="MarginContainer" type="MarginContainer" parent="main2/main"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Control" type="Control" parent="main2/main/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="main2/main/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "title"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="main2/main/MarginContainer/Control/Label"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -1.0
+offset_right = 20.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("GradientTexture1D_277oe")
+
+[node name="content" type="Control" parent="main2/main/MarginContainer/Control"]
+layout_mode = 1
+anchor_top = 0.155
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.130001
+grow_horizontal = 2
+grow_vertical = 2
