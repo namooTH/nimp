@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dopoms5pofbl"]
+
+[ext_resource type="PackedScene" uid="uid://5w3hmvu6b3nn" path="res://components/ui/thumbnail_box/thumbnail_box.tscn" id="1_fatp5"]
+
+[node name="ThumbnailBox" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 358.0
+offset_bottom = 200.0
+
+[node name="ThumbnailBox" parent="." instance=ExtResource("1_fatp5")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://0icrxox7ll0t"]
+[gd_scene load_steps=5 format=3 uid="uid://0icrxox7ll0t"]
 
 [ext_resource type="PackedScene" uid="uid://wj4b1fhrjt8m" path="res://components/ui/scroller/scroller.tscn" id="1_5tsog"]
 [ext_resource type="Script" uid="uid://ct8jq4lc86o4c" path="res://components/general/screenSelector/screen_selector.gd" id="1_lepmi"]
 [ext_resource type="PackedScene" uid="uid://5w3hmvu6b3nn" path="res://components/ui/thumbnail_box/thumbnail_box.tscn" id="2_lepmi"]
+[ext_resource type="PackedScene" uid="uid://c4516lv4qe2vq" path="res://components/general/thumbnailBoxes/listedThumbnailBox/listedThumbnailBox.tscn" id="4_buy7s"]
 
 [node name="ScreenSelector" type="Control"]
 layout_mode = 3
@@ -21,9 +22,19 @@ layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_right = 0.0
-offset_bottom = 57.0
-grow_horizontal = 1
+offset_bottom = 40.0
+grow_vertical = 1
+
+[node name="ListedThumbnailBox" parent="." instance=ExtResource("4_buy7s")]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_right = 0.0
+offset_bottom = 40.0
 grow_vertical = 1
 
 [node name="Scroller" parent="." instance=ExtResource("1_5tsog")]
 layout_mode = 1
+padding = Vector2(10, 3)

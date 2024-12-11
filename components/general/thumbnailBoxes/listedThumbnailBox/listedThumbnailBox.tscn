@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4516lv4qe2vq"]
+
+[ext_resource type="PackedScene" uid="uid://5w3hmvu6b3nn" path="res://components/ui/thumbnail_box/thumbnail_box.tscn" id="1_67u8n"]
+[ext_resource type="Script" uid="uid://bakbjs745luxi" path="res://components/general/thumbnailBoxes/listedThumbnailBox/triangle.gd" id="2_nox7n"]
+
+[node name="ListedThumbnailBox" type="Control"]
+layout_mode = 3
+anchor_right = 0.156
+anchor_bottom = 0.074
+offset_right = 0.287994
+offset_bottom = 0.0480003
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bg" type="Panel" parent="."]
+layout_mode = 2
+anchor_left = 0.056
+anchor_top = 0.292
+anchor_right = 0.233
+anchor_bottom = 0.708
+offset_left = -0.0799999
+offset_top = -0.0160007
+offset_right = 0.0599976
+offset_bottom = 0.0159988
+
+[node name="ThumbnailBox" parent="." instance=ExtResource("1_67u8n")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.222
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0399971
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+
+[node name="triangle" type="AspectRatioContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.056
+anchor_top = 0.292
+anchor_right = 0.167
+anchor_bottom = 0.708
+offset_left = -0.0799999
+offset_top = -0.0160007
+offset_right = -0.0600014
+offset_bottom = 0.0159988
+
+[node name="triangle" type="Control" parent="triangle"]
+layout_mode = 2
+script = ExtResource("2_nox7n")
+
+[node name="polygon" type="Polygon2D" parent="triangle/triangle"]
+polygon = PackedVector2Array(55, 35, 68, 40, 55, 45)
+
+[connection signal="resized" from="triangle/triangle" to="triangle/triangle" method="_on_resized"]

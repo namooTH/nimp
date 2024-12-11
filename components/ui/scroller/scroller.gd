@@ -58,8 +58,8 @@ func insertNode(node: Control, index: int = -1):
 	
 func findIndex(node: Control) -> int:
 	if node in cachedUpperNodes: return cachedUpperNodes.find(node)
-	elif node in displayedNodes: return displayedNodes.find(node)
-	else: return cachedDownNodes.find(node)
+	elif node in displayedNodes: return cachedUpperNodes.size() + displayedNodes.find(node)
+	else: return cachedUpperNodes.size() + displayedNodes.size() + cachedDownNodes.find(node)
 
 var scrollVelocity: Vector2 = Vector2.ZERO
 func _process(delta):

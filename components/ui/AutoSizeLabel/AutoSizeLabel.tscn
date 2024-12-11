@@ -1,6 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://w2vq1ipnu4tu"]
 
-[ext_resource type="Script" path="res://components/ui/AutoSizeLabel/auto_size_label.gd" id="1_7k3o5"]
+[ext_resource type="Script" uid="uid://b0gxhkwq4s0fu" path="res://components/ui/AutoSizeLabel/auto_size_label.gd" id="1_7k3o5"]
 
 [node name="AutoSizeLabel" type="Label"]
+clip_text = true
 script = ExtResource("1_7k3o5")

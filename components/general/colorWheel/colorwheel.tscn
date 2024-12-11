@@ -20,10 +20,10 @@ shader = ExtResource("5_yy7uc")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mah67"]
 bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bqloh"]
 shader = ExtResource("6_a5xwj")
