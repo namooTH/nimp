@@ -1,4 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://bfajttt3q65jj"]
+[gd_scene load_steps=9 format=3 uid="uid://bfajttt3q65jj"]
+
+[ext_resource type="Script" uid="uid://bdb0lbh5thaeu" path="res://components/ui/globalPopup/global_popup.gd" id="1_hp6ce"]
 
 [sub_resource type="Gradient" id="Gradient_3et23"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
@@ -28,8 +30,9 @@ gradient = SubResource("Gradient_aqugt")
 width = 100
 
 [node name="GlobalPopup" type="CanvasLayer"]
+script = ExtResource("1_hp6ce")
 
-[node name="main2" type="Control" parent="."]
+[node name="main" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -37,7 +40,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="bars" type="Control" parent="main2"]
+[node name="bars" type="Control" parent="main"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,7 +49,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="bar" type="TextureRect" parent="main2/bars"]
+[node name="bar" type="TextureRect" parent="main/bars"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.219
@@ -54,7 +58,7 @@ offset_right = 247.24
 grow_vertical = 2
 texture = SubResource("GradientTexture1D_hp6ce")
 
-[node name="bar2" type="TextureRect" parent="main2/bars"]
+[node name="bar2" type="TextureRect" parent="main/bars"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.567
@@ -65,7 +69,7 @@ offset_right = 0.528076
 grow_vertical = 2
 texture = SubResource("GradientTexture1D_aqugt")
 
-[node name="main" type="Panel" parent="main2"]
+[node name="main" type="Panel" parent="main"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.362
@@ -80,7 +84,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_3et23")
 
-[node name="MarginContainer" type="MarginContainer" parent="main2/main"]
+[node name="MarginContainer" type="MarginContainer" parent="main/main"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -92,10 +96,10 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Control" type="Control" parent="main2/main/MarginContainer"]
+[node name="Control" type="Control" parent="main/main/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="main2/main/MarginContainer/Control"]
+[node name="Label" type="Label" parent="main/main/MarginContainer/Control"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -110,7 +114,7 @@ text = "title"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="main2/main/MarginContainer/Control/Label"]
+[node name="TextureRect" type="TextureRect" parent="main/main/MarginContainer/Control/Label"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
@@ -124,7 +128,7 @@ grow_horizontal = 2
 grow_vertical = 0
 texture = SubResource("GradientTexture1D_277oe")
 
-[node name="content" type="Control" parent="main2/main/MarginContainer/Control"]
+[node name="content" type="Control" parent="main/main/MarginContainer/Control"]
 layout_mode = 1
 anchor_top = 0.155
 anchor_right = 1.0
