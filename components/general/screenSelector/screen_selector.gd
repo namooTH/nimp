@@ -3,17 +3,20 @@ extends Control
 var compositions: Array = []
 var references: Array = []
 var edits: Array = []
+
 func _ready() -> void:
 	Global.currentSelectedScreenChanged.connect(updateOptionButton)
 
 func addCompositon():
 	var box = createTB()
 	box.setType("composition")
+	box.node = Global.screenManager.makeCompositionScreen(Vector2(1920, 1080))
 	$Scroller.insertNode(box)
 	return box
 func addReference():
 	var box = createTB()
 	box.setType("reference")
+	box.node = await Global.screenManager.makeReference()
 	$Scroller.insertNode(box)
 	return box
 func addEdit(reference: Control):
@@ -48,8 +51,8 @@ func updateOptionButton(selection: ThumbnailBox) -> void:
 func _on_button_pressed() -> void:
 	match $topPanel/margin/control/OptionButton.get_item_text($topPanel/margin/control/OptionButton.selected):
 		"composition":
-			addCompositon()
+			await addCompositon()
 		"reference":
-			addReference()
+			await addReference()
 		"edit":
-			addEdit(Global.currentSelectedScreen)
+			await addEdit(Global.currentSelectedScreen)

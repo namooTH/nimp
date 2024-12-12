@@ -30,6 +30,7 @@ gradient = SubResource("Gradient_aqugt")
 width = 100
 
 [node name="GlobalPopup" type="CanvasLayer"]
+layer = 2
 script = ExtResource("1_hp6ce")
 
 [node name="main" type="Control" parent="."]
@@ -39,6 +40,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
 [node name="bars" type="Control" parent="main"]
 modulate = Color(1, 1, 1, 0)
@@ -48,6 +50,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
 [node name="bar" type="TextureRect" parent="main/bars"]
 layout_mode = 1
@@ -82,6 +85,7 @@ offset_right = -0.475952
 offset_bottom = -0.272034
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_3et23")
 
 [node name="MarginContainer" type="MarginContainer" parent="main/main"]
@@ -98,6 +102,7 @@ theme_override_constants/margin_bottom = 10
 
 [node name="Control" type="Control" parent="main/main/MarginContainer"]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="Label" type="Label" parent="main/main/MarginContainer/Control"]
 layout_mode = 1
@@ -108,6 +113,7 @@ offset_left = -20.0
 offset_right = 20.0
 offset_bottom = 23.0
 grow_horizontal = 2
+mouse_filter = 1
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "title"
@@ -129,15 +135,15 @@ grow_vertical = 0
 texture = SubResource("GradientTexture1D_277oe")
 
 [node name="content" type="Control" parent="main/main/MarginContainer/Control"]
+clip_contents = true
 layout_mode = 1
-anchor_top = 0.155
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 0.130001
-grow_horizontal = 2
-grow_vertical = 2
+offset_top = 55.0
+offset_right = -1.0
 
 [node name="anchorTextbox" type="Control" parent="main"]
+visible = false
 layout_mode = 1
 anchor_left = 0.362
 anchor_top = 0.211
@@ -149,9 +155,4 @@ offset_right = -0.475952
 offset_bottom = -0.272034
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+mouse_filter = 1

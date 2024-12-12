@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://ckhikm5gqdet0"]
+[gd_scene load_steps=5 format=3 uid="uid://ckhikm5gqdet0"]
 
 [ext_resource type="Script" uid="uid://cub1mc4fhbq1j" path="res://screens/editor/editor.gd" id="1_lagm4"]
 [ext_resource type="PackedScene" uid="uid://brhqndhpkxpcd" path="res://components/general/camera/camera.tscn" id="1_opgpi"]
 [ext_resource type="PackedScene" uid="uid://qbnj5v41u3li" path="res://system/ScreenManager/ScreenManager.tscn" id="3_nebxx"]
 [ext_resource type="Texture2D" uid="uid://dd2ld0wwwcjms" path="res://res/grid.png" id="4_43uds"]
-[ext_resource type="Script" uid="uid://dbodxs88hdihk" path="res://system/ScreenManager/screen_manager.gd" id="4_g6l4q"]
 
 [node name="Editor" type="Node2D"]
 script = ExtResource("1_lagm4")
@@ -49,9 +48,6 @@ theme_override_font_sizes/font_size = 64
 text = "rendering in progress..."
 
 [node name="ScreenManager" parent="." instance=ExtResource("3_nebxx")]
-offset_right = 1920.0
-offset_bottom = 1080.0
-script = ExtResource("4_g6l4q")
 
 [node name="Camera" parent="." instance=ExtResource("1_opgpi")]
 

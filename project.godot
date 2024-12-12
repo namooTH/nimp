@@ -21,6 +21,7 @@ FocusManager="*res://system/FocusManager.tscn"
 SelectionManager="*res://system/SelectionManager/SelectionManager.tscn"
 TopLevel="*res://components/top_level/topLevel.tscn"
 Global="*res://system/Global/Global.tscn"
+GlobalPopup="*res://components/ui/globalPopup/globalPopup.tscn"
 
 [input]
 

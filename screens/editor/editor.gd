@@ -1,7 +1,12 @@
 extends Node2D
 
-var selectableContainer = preload("res://components/general/selection/selectable_container/selectableContainer.tscn")
 @onready var screen: Control = $ScreenManager
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_released("copy"):
+		var image = await getScreenImage()
+		image.save_png(OS.get_system_dir(OS.SYSTEM_DIR_PICTURES) + "/" + "image.png")
+	
 
 func _ready() -> void:
 	$Camera.position = $ScreenManager.size / 2
@@ -11,13 +16,6 @@ func _process(delta: float) -> void:
 	$bg.size = screen.size
 	$bg.position = screen.position
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("paste"):
-		if DisplayServer.clipboard_has_image(): makeTextureFromImage(DisplayServer.clipboard_get_image())
-	if event.is_action_released("copy"):
-		var image = await getScreenImage()
-		image.save_png(OS.get_system_dir(OS.SYSTEM_DIR_PICTURES) + "/" + "image.png")
-	
 func getScreenImage() -> Image:
 	var render = $Render
 	var camera = $"Render/2dSpace/Camera"
@@ -52,17 +50,3 @@ func getScreenImage() -> Image:
 	screen.reparent(self)
 	$"placeholder-msg".hide()
 	return image
-
-func makeTextureFromImage(image: Image):
-	var imageNode: TextureRect = TextureRect.new()
-	imageNode.texture = ImageTexture.create_from_image(image)
-	imageNode.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	imageNode.set_anchors_preset(Control.PRESET_FULL_RECT)
-	var container = makeContainer()
-	container.size = imageNode.texture.get_size()
-	container.add_child(imageNode)
-
-func makeContainer() -> Node:
-	var container = selectableContainer.instantiate()
-	$screen.add_child(container)
-	return container
