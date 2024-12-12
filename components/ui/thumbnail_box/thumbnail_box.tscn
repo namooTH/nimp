@@ -92,3 +92,5 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 flat = true
+
+[connection signal="pressed" from="clickArea" to="." method="_on_click_area_pressed"]

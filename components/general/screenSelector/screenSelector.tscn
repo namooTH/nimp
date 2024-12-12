@@ -49,15 +49,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
 
 [node name="control" type="Control" parent="topPanel/margin"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="topPanel/margin/control"]
+[node name="button" type="Button" parent="topPanel/margin/control"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -69,8 +69,25 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 8
 text = "+"
 
+[node name="OptionButton" type="OptionButton" parent="topPanel/margin/control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 33.0
+offset_top = -10.0
+offset_right = 160.0
+offset_bottom = 10.0
+item_count = 2
+popup/item_0/text = "composition"
+popup/item_0/id = 0
+popup/item_1/text = "reference"
+popup/item_1/id = 1
+
 [node name="Scroller" parent="." instance=ExtResource("1_5tsog")]
 layout_mode = 1
 anchors_preset = -1
 offset_top = 30.0
 padding = Vector2(10, 3)
+
+[connection signal="pressed" from="topPanel/margin/control/button" to="." method="_on_button_pressed"]

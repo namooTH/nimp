@@ -1,32 +1,36 @@
 extends Node2D
 
 var selectableContainer = preload("res://components/general/selection/selectable_container/selectableContainer.tscn")
+@onready var screen: Control = $ScreenManager
 
 func _ready() -> void:
-	$Camera.position = $Canvas.size / 2
+	$Camera.position = $ScreenManager.size / 2
 	Global.currentSpace = self
+
+func _process(delta: float) -> void:
+	$bg.size = screen.size
+	$bg.position = screen.position
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("paste"):
 		if DisplayServer.clipboard_has_image(): makeTextureFromImage(DisplayServer.clipboard_get_image())
 	if event.is_action_released("copy"):
-		var image = await getCanvasImage()
+		var image = await getScreenImage()
 		image.save_png(OS.get_system_dir(OS.SYSTEM_DIR_PICTURES) + "/" + "image.png")
 	
-func getCanvasImage() -> Image:
-	var canvas = $Canvas
+func getScreenImage() -> Image:
 	var render = $Render
 	var camera = $"Render/2dSpace/Camera"
 	
-	$"placeholder-msg".size = canvas.size
+	$"placeholder-msg".size = screen.size
 	$"placeholder-msg".show()
 	
-	render.size = canvas.size
+	render.size = screen.size
 	camera.position = Vector2.ZERO
 	
 	if is_instance_valid(SelectionManager.getSelectedNode()):
 		var selectedEntireSize = SelectionManager.getSelectedNode().position + SelectionManager.getSelectedNode().size
-		var renderSizeClipped = selectedEntireSize - canvas.size
+		var renderSizeClipped = selectedEntireSize - screen.size
 		# only take action for the **vaild** non negative value
 		render.size.x = SelectionManager.getSelectedNode().size.x - max(renderSizeClipped.x, 0.0)
 		render.size.y = SelectionManager.getSelectedNode().size.y - max(renderSizeClipped.y, 0.0)
@@ -39,15 +43,13 @@ func getCanvasImage() -> Image:
 			render.size.y -= abs(camera.position.y)
 			camera.position.y = 0
 		
-	canvas.get_node("bg").hide()
 	
-	canvas.reparent($"Render/2dSpace")
+	screen.reparent($"Render/2dSpace")
 	render.render_target_update_mode = SubViewport.UPDATE_ONCE
 	await RenderingServer.frame_post_draw
 	var image = render.get_texture().get_image()
 	
-	canvas.get_node("bg").show()
-	canvas.reparent(self)
+	screen.reparent(self)
 	$"placeholder-msg".hide()
 	return image
 
@@ -62,5 +64,5 @@ func makeTextureFromImage(image: Image):
 
 func makeContainer() -> Node:
 	var container = selectableContainer.instantiate()
-	$Canvas.add_child(container)
+	$screen.add_child(container)
 	return container

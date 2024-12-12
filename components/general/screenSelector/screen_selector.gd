@@ -4,11 +4,8 @@ var compositions: Array = []
 var references: Array = []
 var edits: Array = []
 func _ready() -> void:
-	references.append(addReference())
-	edits.append(addEdit(references[0]))
-	edits.append(addEdit(references[0]))
-	compositions.append(addCompositon())
-	
+	Global.currentSelectedScreenChanged.connect(updateOptionButton)
+
 func addCompositon():
 	var box = createTB()
 	box.setType("composition")
@@ -35,3 +32,24 @@ func createListedTB() -> Control:
 	var box = $ListedThumbnailBox.duplicate()
 	box.show()
 	return box
+	
+func updateOptionButton(selection: ThumbnailBox) -> void:
+	match selection.type:
+		"reference":
+			$topPanel/margin/control/OptionButton.clear()
+			$topPanel/margin/control/OptionButton.add_item("edit")
+		"edit":
+			$topPanel/margin/control/OptionButton.clear()
+		_:
+			$topPanel/margin/control/OptionButton.clear()
+			$topPanel/margin/control/OptionButton.add_item("composition")
+			$topPanel/margin/control/OptionButton.add_item("reference")
+
+func _on_button_pressed() -> void:
+	match $topPanel/margin/control/OptionButton.get_item_text($topPanel/margin/control/OptionButton.selected):
+		"composition":
+			addCompositon()
+		"reference":
+			addReference()
+		"edit":
+			addEdit(Global.currentSelectedScreen)
