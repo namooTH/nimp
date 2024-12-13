@@ -1,9 +1,11 @@
 extends Camera2D
 
+func _ready() -> void:
+	Global.currentCamera = self
+
 func _process(delta: float) -> void:
 	lastMousePos = get_global_mouse_position()
 	zoom = lerp(zoom, zoom_to, 10 * delta)
-	Global.currentZoomLevel = zoom
 
 var lastMousePos = null
 var allowToPan = false

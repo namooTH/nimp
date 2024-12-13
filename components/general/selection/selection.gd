@@ -9,7 +9,7 @@ func _process(delta: float) -> void:
 	var selected = SelectionManager.getSelectedNode()
 	if is_instance_valid(selected):
 		show()
-		size = selected.size * Global.currentZoomLevel
+		size = selected.size * Global.currentCamera.zoom
 		position = selected.get_global_transform_with_canvas().get_origin()
 	else: hide()
 
@@ -36,8 +36,8 @@ func _on_mouse_entered() -> void: isHovered = true
 func _on_mouse_exited() -> void: isHovered = false
 
 func move(tranfrom: Vector2):
-	if FocusManager.getFocusNode(): resize(SelectionManager.getSelectedNode(), FocusManager.getFocusNode(), tranfrom / Global.currentZoomLevel)
-	else: if isHovered: SelectionManager.getSelectedNode().position += tranfrom / Global.currentZoomLevel
+	if FocusManager.getFocusNode(): resize(SelectionManager.getSelectedNode(), FocusManager.getFocusNode(), tranfrom / Global.currentCamera.zoom)
+	else: if isHovered: SelectionManager.getSelectedNode().position += tranfrom / Global.currentCamera.zoom
 func resize(target: Node, selection_node: Node, tranform: Vector2):
 	match selection_node.name:
 		"SelectionCircleLeftCenter":

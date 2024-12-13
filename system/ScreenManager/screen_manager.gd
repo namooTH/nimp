@@ -9,15 +9,19 @@ func swtichScreenFromThumbnailBox(node: ThumbnailBox):
 	switchScreen(node.node)
 
 var composition = preload("res://components/general/screens/composition/Composition.tscn")
-func makeCompositionScreen(resolution: Vector2) -> Composition:
+var requestResolution = preload("res://components/general/requestsUI/requestResolution/requestResolution.tscn")
+func makeCompositionScreen(resolution: Vector2 = Vector2.ZERO) -> Composition:
 	var screen: Composition = composition.instantiate()
-	screen.size = resolution
+	var RR = requestResolution.instantiate()
+	add_child(RR)
+	if resolution == Vector2.ZERO: screen.size = await GlobalPopup.showPopup(RR)
+	else: screen.size = resolution
 	add_child(screen)
 	move_child(screen, 1)
 	switchScreen(screen)
 	return screen
 
-var requestImage = preload("res://components/general/requestFile/requestImage.tscn")
+var requestImage = preload("res://components/general/requestsUI/requestFile/requestImage.tscn")
 func makeReference(image: ImageTexture = null) -> TextureRect:
 	var screen: TextureRect = TextureRect.new()
 	var RI = requestImage.instantiate()

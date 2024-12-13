@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8e6e3iqn5xqc"]
+
+[ext_resource type="Script" uid="uid://c56e3mxf8yhrq" path="res://components/general/requestsUI/requestFile/request_file.gd" id="1_r0hko"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_14m1v"]
+bg_color = Color(0, 0, 0, 0.203922)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="RequestImage" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_14m1v")
+script = ExtResource("1_r0hko")
+
+[node name="width" type="LineEdit" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.137
+anchor_top = 0.41
+anchor_right = 0.863
+anchor_bottom = 0.458
+offset_left = 0.175995
+offset_top = 0.319977
+offset_right = -0.176025
+offset_bottom = 0.215973
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "Width"
+
+[node name="height" type="LineEdit" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.137
+anchor_top = 0.5
+anchor_right = 0.863
+anchor_bottom = 0.549
+offset_left = 0.175995
+offset_top = 1.0
+offset_right = -0.176025
+offset_bottom = 0.247986
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "Height"
+
+[node name="ok" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.414
+anchor_top = 0.594
+anchor_right = 0.586
+anchor_bottom = 0.664
+offset_left = 0.0719604
+offset_top = 0.0879822
+offset_right = -0.0720215
+offset_bottom = -0.272034
+grow_horizontal = 2
+grow_vertical = 2
+text = "Ok"
+
+[connection signal="pressed" from="ok" to="." method="_on_ok_pressed"]

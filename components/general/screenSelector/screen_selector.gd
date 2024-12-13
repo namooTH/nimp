@@ -10,7 +10,7 @@ func _ready() -> void:
 func addCompositon():
 	var box = createTB()
 	box.setType("composition")
-	box.node = Global.screenManager.makeCompositionScreen(Vector2(1920, 1080))
+	box.node = await Global.screenManager.makeCompositionScreen()
 	$Scroller.insertNode(box)
 	return box
 func addReference():

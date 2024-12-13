@@ -2,7 +2,6 @@ extends ColorRect
 
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("mbl") and isHovered:
-		print("hello world")
 		var center = size / 2
 		var point = center.angle_to_point(get_local_mouse_position())
 		var pointDeg = rad_to_deg(point)
@@ -16,7 +15,7 @@ func _process(delta: float) -> void:
 	var point = deg_to_rad(360 * Global.currentColor.h)
 	
 	# making sure that it isnt a blob on low resolution
-	pointer.material.set_shader_parameter("outline_width", 3.0 * (size.x / size.y))
+	pointer.material.set_shader_parameter("outline_width", 2.0 * (size.x / size.y) / 2)
 	
 	pointer.pivot_offset = pointer.size / 2
 	pointer.position.x = (radius * cos(point)) + (size.x / 2) - (pointer.size.x / 2)

@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://bwrun6tfrk50b"]
 
-[ext_resource type="Script" uid="uid://c56e3mxf8yhrq" path="res://components/general/requestFile/request_file.gd" id="1_o2uxk"]
+[ext_resource type="Script" uid="uid://c56e3mxf8yhrq" path="res://components/general/requestsUI/requestFile/request_file.gd" id="1_o2uxk"]
 [ext_resource type="Texture2D" uid="uid://lq3epe5m6c7x" path="res://res/icons/images.svg" id="2_jo31t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_14m1v"]
-bg_color = Color(0, 0, 0, 0.564706)
+bg_color = Color(0, 0, 0, 0.168627)
 border_width_left = 10
 border_width_top = 10
 border_width_right = 10
