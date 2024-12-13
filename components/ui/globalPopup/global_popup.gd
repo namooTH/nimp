@@ -17,7 +17,7 @@ func showPopup(content: Control):
 func _process(delta: float) -> void:
 	transparency = lerp(transparency, transparencyTo, delta * 8) 
 	$main/bars.modulate.a = transparency
-	$main/main.modulate.a = transparency * 4
+	$main/main.modulate.a = transparency
 	$main/main.size = $main/anchorTextbox.size * transparency
 	$main/main.position = ( ($main/anchorTextbox.position) + ($main/anchorTextbox.size - $main/main.size) / 2 )
 	if transparencyTo == 0 and transparency <= 0.001:
@@ -25,6 +25,3 @@ func _process(delta: float) -> void:
 		if content.get_children(): content.get_child(0).queue_free()
 		hide()
 	else: show()
-	#var posOffset = (-(transparency - 1)) + $main/main.position
-	#$main/main.position = posOffset + ( (-$main/anchorTextbox.size / 2) * (transparency - 1) )
-	

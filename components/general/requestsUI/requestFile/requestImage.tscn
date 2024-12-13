@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://lq3epe5m6c7x" path="res://res/icons/images.svg" id="2_jo31t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_14m1v"]
-bg_color = Color(0, 0, 0, 0.168627)
+bg_color = Color(0, 0, 0, 0.588235)
 border_width_left = 10
 border_width_top = 10
 border_width_right = 10
@@ -26,15 +26,15 @@ script = ExtResource("1_o2uxk")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 0.23
 anchor_right = 0.5
-anchor_bottom = 0.5
+anchor_bottom = 0.23
 offset_left = -20.0
-offset_top = -186.5
+offset_top = -11.54
 offset_right = 20.0
-offset_bottom = -163.5
+offset_bottom = 11.46
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 32
@@ -42,18 +42,20 @@ text = "select a file or drag and drop here"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -146.0
-offset_top = -146.0
-offset_right = 146.0
-offset_bottom = 146.0
+anchors_preset = -1
+anchor_left = 0.373
+anchor_top = 0.369
+anchor_right = 0.627
+anchor_bottom = 0.819
+offset_left = 0.303955
+offset_top = -0.112015
+offset_right = -0.304016
+offset_bottom = 0.287964
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_jo31t")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="FileDialog" type="FileDialog" parent="."]
 title = "Open a File"

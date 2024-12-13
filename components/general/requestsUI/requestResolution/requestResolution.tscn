@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c56e3mxf8yhrq" path="res://components/general/requestsUI/requestFile/request_file.gd" id="1_r0hko"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_14m1v"]
-bg_color = Color(0, 0, 0, 0.203922)
+bg_color = Color(0, 0, 0, 0.588235)
 border_width_left = 10
 border_width_top = 10
 border_width_right = 10
@@ -14,7 +14,7 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[node name="RequestImage" type="Panel"]
+[node name="RequestResolution" type="Panel"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
