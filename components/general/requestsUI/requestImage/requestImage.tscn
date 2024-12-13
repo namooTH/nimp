@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bwrun6tfrk50b"]
 
-[ext_resource type="Script" uid="uid://c56e3mxf8yhrq" path="res://components/general/requestsUI/requestFile/request_file.gd" id="1_o2uxk"]
-[ext_resource type="Texture2D" uid="uid://lq3epe5m6c7x" path="res://res/icons/images.svg" id="2_jo31t"]
+[ext_resource type="Script" uid="uid://41ov6u0j8syl" path="res://components/general/requestsUI/requestImage/requestImage.gd" id="1_udv6q"]
+[ext_resource type="Texture2D" uid="uid://lq3epe5m6c7x" path="res://res/icons/images.svg" id="2_ufryx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_14m1v"]
 bg_color = Color(0, 0, 0, 0.588235)
@@ -22,7 +22,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_14m1v")
-script = ExtResource("1_o2uxk")
+script = ExtResource("1_udv6q")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -53,7 +53,7 @@ offset_right = -0.304016
 offset_bottom = 0.287964
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_jo31t")
+texture = ExtResource("2_ufryx")
 expand_mode = 1
 stretch_mode = 4
 

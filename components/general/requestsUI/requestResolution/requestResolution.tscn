@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b8e6e3iqn5xqc"]
 
-[ext_resource type="Script" uid="uid://c56e3mxf8yhrq" path="res://components/general/requestsUI/requestFile/request_file.gd" id="1_r0hko"]
+[ext_resource type="Script" uid="uid://c56e3mxf8yhrq" path="res://components/general/requestsUI/requestResolution/requestResolution.gd" id="1_iqrsg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_14m1v"]
 bg_color = Color(0, 0, 0, 0.588235)
@@ -21,7 +21,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_14m1v")
-script = ExtResource("1_r0hko")
+script = ExtResource("1_iqrsg")
 
 [node name="width" type="LineEdit" parent="."]
 layout_mode = 1

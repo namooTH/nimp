@@ -21,7 +21,7 @@ func makeCompositionScreen(resolution: Vector2 = Vector2.ZERO) -> Composition:
 	switchScreen(screen)
 	return screen
 
-var requestImage = preload("res://components/general/requestsUI/requestFile/requestImage.tscn")
+var requestImage = preload("res://components/general/requestsUI/requestImage/requestImage.tscn")
 func makeReference(image: ImageTexture = null) -> TextureRect:
 	var screen: TextureRect = TextureRect.new()
 	var RI = requestImage.instantiate()
