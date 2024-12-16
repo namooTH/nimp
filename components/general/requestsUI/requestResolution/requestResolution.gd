@@ -1,10 +1,8 @@
 extends Panel
 const title: String = "Resolution"
 
-signal done(imageTexture: ImageTexture)
-
-func _on_clickarea_pressed() -> void:
-	$FileDialog.show()
-func _on_file_dialog_file_selected(path: String) -> void:
-	var image = Image.load_from_file(path)
-	done.emit(ImageTexture.create_from_image(image))
+signal done(resolution: Vector2)
+func _on_ok_pressed() -> void:
+	var x: float = float($width.text)
+	var y: float = float($height.text)
+	if x != 0 and y != 0: done.emit(Vector2(x, y))

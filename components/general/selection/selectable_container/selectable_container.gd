@@ -10,3 +10,6 @@ func _unhandled_input(event: InputEvent) -> void:
 var isMouseHovered = false
 func _on_mouse_entered() -> void: isMouseHovered = true
 func _on_mouse_exited() -> void: isMouseHovered = false
+
+func action():
+	if "action" in get_child(0): get_child(0).action()

@@ -13,6 +13,7 @@ func _process(delta: float) -> void:
 		position = selected.get_global_transform_with_canvas().get_origin()
 	else: hide()
 
+var stillClickCounter:int = 0 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("mbl"):
 		if visible and not isHovered and not is_instance_valid(FocusManager.getFocusNode()): SelectionManager.deselectCurrentSelection()
@@ -24,12 +25,19 @@ func _input(event: InputEvent) -> void:
 		var tranfrom
 		if lastMousePos: tranfrom = get_global_mouse_position() - lastMousePos
 		else: return
-		if isClicked: move(tranfrom)
+		if isClicked and tranfrom != Vector2.ZERO:
+			stillClickCounter = 0
+			move(tranfrom)
 		else:
 			if event.is_action_pressed("left"): SelectionManager.getSelectedNode().position.x -= 1
 			if event.is_action_pressed("right"): SelectionManager.getSelectedNode().position.x += 1
 			if event.is_action_pressed("up"): SelectionManager.getSelectedNode().position.y -= 1
 			if event.is_action_pressed("down"): SelectionManager.getSelectedNode().position.y += 1
+	elif isClicked and isHovered:
+		stillClickCounter += 1
+		if stillClickCounter >= 2:
+			stillClickCounter = 0
+			SelectionManager.getSelectedNode().action()
 	lastMousePos = get_global_mouse_position()
 
 func _on_mouse_entered() -> void: isHovered = true

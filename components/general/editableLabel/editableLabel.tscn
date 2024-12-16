@@ -1,0 +1,103 @@
+[gd_scene load_steps=15 format=3 uid="uid://bc03v2ydbhlqs"]
+
+[ext_resource type="Script" uid="uid://b7ogvvcj4l2fw" path="res://components/general/editableLabel/editable_label.gd" id="1_tycjo"]
+[ext_resource type="Script" uid="uid://bfl7q5qx5v484" path="res://addons/markdownlabel/markdownlabel.gd" id="2_ilc2w"]
+[ext_resource type="Script" uid="uid://swdcy5qyj0xn" path="res://addons/markdownlabel/header_formats/h1_format.gd" id="3_8rps5"]
+[ext_resource type="Script" uid="uid://cvw73xirdkkdq" path="res://addons/markdownlabel/header_formats/h2_format.gd" id="4_wta0h"]
+[ext_resource type="Script" uid="uid://bmwq0s10fxeko" path="res://addons/markdownlabel/header_formats/h3_format.gd" id="5_it1hd"]
+[ext_resource type="Script" uid="uid://c6rllbhvqv5vi" path="res://addons/markdownlabel/header_formats/h4_format.gd" id="6_yxstc"]
+[ext_resource type="Script" uid="uid://c7qnnfllxs2ms" path="res://addons/markdownlabel/header_formats/h5_format.gd" id="7_c2mae"]
+[ext_resource type="Script" uid="uid://id5uppmqcgu2" path="res://addons/markdownlabel/header_formats/h6_format.gd" id="8_m3vg7"]
+
+[sub_resource type="Resource" id="Resource_0mn1a"]
+resource_local_to_scene = true
+script = ExtResource("3_8rps5")
+font_size = 2.285
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_pm4ot"]
+resource_local_to_scene = true
+script = ExtResource("4_wta0h")
+font_size = 1.714
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_sfu5l"]
+resource_local_to_scene = true
+script = ExtResource("5_it1hd")
+font_size = 1.428
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_rxfli"]
+resource_local_to_scene = true
+script = ExtResource("6_yxstc")
+font_size = 1.142
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_m4cc1"]
+resource_local_to_scene = true
+script = ExtResource("7_c2mae")
+font_size = 1.0
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_5ea4f"]
+resource_local_to_scene = true
+script = ExtResource("8_m3vg7")
+font_size = 0.857
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[node name="editableLabel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_tycjo")
+
+[node name="MarkdownLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+bbcode_enabled = true
+text = "[font_size=36]hello world[/font_size]
+wow this is something"
+fit_content = true
+script = ExtResource("2_ilc2w")
+markdown_text = "# hello world
+wow this is something"
+h1 = SubResource("Resource_0mn1a")
+h2 = SubResource("Resource_pm4ot")
+h3 = SubResource("Resource_sfu5l")
+h4 = SubResource("Resource_rxfli")
+h5 = SubResource("Resource_m4cc1")
+h6 = SubResource("Resource_5ea4f")
+metadata/_custom_type_script = ExtResource("2_ilc2w")

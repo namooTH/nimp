@@ -36,5 +36,5 @@ func makeReference(image: ImageTexture = null) -> TextureRect:
 
 func switchScreen(screen: Node) -> void:
 	if get_child_count() > 1: get_child(-1).reparent(get_child(0))
-	screen.reparent(self)
 	size = screen.size
+	screen.reparent(self)

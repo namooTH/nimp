@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7hjedb0qld5c"]
+
+[ext_resource type="Script" uid="uid://v21dfe2oav76" path="res://components/general/requestText/request_text.gd" id="1_5m25w"]
+
+[node name="RequestText" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5m25w")
+
+[node name="edit" type="TextEdit" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -75.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="submit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.288
+anchor_top = 0.906
+anchor_right = 0.712
+anchor_bottom = 1.0
+offset_left = 0.223969
+offset_top = -0.0880127
+offset_right = -0.223999
+grow_horizontal = 2
+grow_vertical = 0
+text = "yuh"
+
+[connection signal="pressed" from="submit" to="." method="_on_submit_pressed"]

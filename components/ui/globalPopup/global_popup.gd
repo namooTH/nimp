@@ -6,6 +6,8 @@ func hidePopup():
 	transparencyTo = 0
 func showPopup(content: Control):
 	if content.has_signal("done"):
+		if "title" in content:
+			$main/main/MarginContainer/Control/Label.text = content.title
 		content.reparent($main/main/MarginContainer/Control/content)
 		content.position = Vector2.ZERO
 		transparencyTo = 1

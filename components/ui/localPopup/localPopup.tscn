@@ -1,0 +1,52 @@
+[gd_scene load_steps=2 format=3 uid="uid://bx76er748gaac"]
+
+[ext_resource type="Script" uid="uid://clrdjxjwdj3n5" path="res://components/ui/localPopup/local_popup.gd" id="1_1p7p5"]
+
+[node name="LocalPopup" type="CanvasLayer"]
+script = ExtResource("1_1p7p5")
+
+[node name="base" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="margin" type="MarginContainer" parent="base"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="main" type="Control" parent="base/margin"]
+layout_mode = 2
+
+[node name="closebutton" type="Button" parent="base/margin/main"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -52.0
+offset_bottom = 52.0
+grow_horizontal = 0
+
+[node name="content" type="Control" parent="base/margin/main"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="title" type="Label" parent="base/margin/main"]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Title"

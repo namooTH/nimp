@@ -3,7 +3,7 @@ extends Node2D
 @onready var screen: Control = $ScreenManager
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_released("copy"):
+	if event.is_action_pressed("copy"):
 		var image = await getScreenImage()
 		image.save_png(OS.get_system_dir(OS.SYSTEM_DIR_PICTURES) + "/" + "image.png")
 	
