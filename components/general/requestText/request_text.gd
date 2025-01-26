@@ -1,8 +1,9 @@
 extends Control
 const title: String = "Text"
+var label = Label.new()
 
-signal done(string: String)
+signal done(label: Label)
 func _on_submit_pressed() -> void:
-	done.emit($edit.text)
+	done.emit(label)
 func setText(text: String) -> void:
-	$edit.text = text
+	label.text = text

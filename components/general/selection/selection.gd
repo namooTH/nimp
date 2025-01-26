@@ -16,7 +16,9 @@ func _process(delta: float) -> void:
 var stillClickCounter:int = 0 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("mbl"):
-		if visible and not isHovered and not is_instance_valid(FocusManager.getFocusNode()): SelectionManager.deselectCurrentSelection()
+		if visible and not isHovered and not is_instance_valid(FocusManager.getFocusNode()):
+			FocusManager.unfocusCurrent()
+			SelectionManager.deselectCurrentSelection()
 		isClicked = true
 	if event.is_action_released("mbl"):
 		FocusManager.unfocusCurrent()
@@ -29,6 +31,7 @@ func _input(event: InputEvent) -> void:
 			stillClickCounter = 0
 			move(tranfrom)
 		else:
+			if !is_instance_valid(SelectionManager.getSelectedNode()): return
 			if event.is_action_pressed("left"): SelectionManager.getSelectedNode().position.x -= 1
 			if event.is_action_pressed("right"): SelectionManager.getSelectedNode().position.x += 1
 			if event.is_action_pressed("up"): SelectionManager.getSelectedNode().position.y -= 1

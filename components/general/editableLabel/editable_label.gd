@@ -5,7 +5,8 @@ func action() -> void:
 	var RR = requestText.instantiate()
 	add_child(RR)
 	RR.setText($MarkdownLabel.markdown_text)
-	$MarkdownLabel.markdown_text = await LocalPopup.showPopup(RR, self)
+	var label: Label = await LocalPopup.showPopup(RR, self)
+	$MarkdownLabel.markdown_text = label.text
 
 func setText(string: String):
 	$MarkdownLabel.markdown_text = string

@@ -4,8 +4,7 @@ extends Control
 @onready var currentSize: Vector2 = size
 @onready var lastSize = size
 
-func unfocus():
-	currentSize = baseSize
+func unfocus(): currentSize = baseSize
 func focus():
 	currentSize = baseSize * 2
 	FocusManager.handleFocus(self, unfocus)

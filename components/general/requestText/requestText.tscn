@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://v21dfe2oav76" path="res://components/general/requestText/request_text.gd" id="1_5m25w"]
 
-[node name="RequestText" type="Control"]
+[node name="RequestLabel" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,12 +11,27 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5m25w")
 
+[node name="MenuBar" type="TabBar" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -617.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+tab_count = 1
+tab_0/title = "Text"
+
 [node name="edit" type="TextEdit" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = -75.0
+offset_left = -2.0
+offset_top = 32.0
+offset_right = -2.0
+offset_bottom = -56.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -32,6 +47,6 @@ offset_top = -0.0880127
 offset_right = -0.223999
 grow_horizontal = 2
 grow_vertical = 0
-text = "yuh"
+text = "Done"
 
 [connection signal="pressed" from="submit" to="." method="_on_submit_pressed"]

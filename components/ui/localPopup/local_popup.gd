@@ -5,6 +5,7 @@ var transparencyTo: float = 0
 func hidePopup():
 	transparencyTo = 0
 func showPopup(content: Control, at: Control):
+	if $base/margin/main/content.get_children(): for child in $base/margin/main/content.get_children(): child.queue_free()
 	if content.has_signal("done"):
 		if "title" in content:
 			$base/margin/main/title.text = content.title
@@ -30,8 +31,5 @@ func _process(delta: float) -> void:
 	$base.modulate.a = transparency
 	#$main/main.size = $main/anchorTextbox.size * transparency
 	#$main/main.position = ( ($main/anchorTextbox.position) + ($main/anchorTextbox.size - $main/main.size) / 2 )
-	if transparencyTo == 0 and transparency <= 0.001:
-		var content = $base/margin/main/content
-		if content.get_children(): content.get_child(0).queue_free()
-		hide()
+	if transparency <= 0.001: hide()
 	else: show()

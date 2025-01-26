@@ -7,7 +7,6 @@ func _input(event: InputEvent) -> void:
 		var image = await getScreenImage()
 		image.save_png(OS.get_system_dir(OS.SYSTEM_DIR_PICTURES) + "/" + "image.png")
 	
-
 func _ready() -> void:
 	$Camera.position = $ScreenManager.size / 2
 	Global.currentSpace = self
